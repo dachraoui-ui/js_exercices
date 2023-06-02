@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice : 9</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 9 :</h3> 
+  <p>Ecrire un code js qui résout une équation de second degré de la forme ax²+bx+c=0. 
+   Prévoir les cas particuliers.    
+</p> 
+<label for="a">donner a :</label>
+   <input type="text" id="a"><br>
+   <label for="b">donner b :</label>
+   <input type="text" id="b"><br>
+   <label for="c">donner c :</label>
+   <input type="text" id="c"> <br>
+   <input type="button" value="calculer" id="btn">
+   <p id="res"></p>
+
+   <script>
+     document.getElementById("btn").addEventListener("click", function() {
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        var c = document.getElementById("c").value;
+        var discriminant = b * b - 4 * a * c;
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+          document.getElementById("res").textContent = "Veuillez entrer des nombres valides pour a, b et c.";
+        } else if (a === 0) {
+          document.getElementById("res").textContent = "L'équation n'est pas quadratique.";
+        } else if (discriminant > 0) {
+          var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+          var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+          document.getElementById("res").textContent = "L'équation a deux solutions réelles : x₁ = " + x1 + ", x₂ = " + x2;
+        } else if (discriminant === 0) {
+          var x = -b / (2 * a);
+          document.getElementById("res").textContent = "L'équation a une solution réelle : x = " + x;
+        } else {
+          document.getElementById("res").textContent = "L'équation n'a pas de solution réelle.";
+        }
+     });
+   </script>
+</body>
+</html>

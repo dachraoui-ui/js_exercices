@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 7</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp3.html">TPs</a>
+   </nav>
+   <article>
+      <div> <h2>Questionnaire</h2>
+         <form>
+         <h3>Question 1 :</h3><br>
+         parmi ces 5 adresses de site internet imaginaires, lesquelles pourraient exister réellement? (2 
+        bonnes réponses)<br>
+         <input type="checkBox" name="Q1R1" id="Q1R1" value="Q1R1" >//concour.+http:<br>
+         <input type="checkBox" name="Q1R2" id="Q1R2" value="Q1R2">Inc@concour.tn<br>
+        <input type="checkBox" name="Q1" id="Q1R3" value="Q1R3">http://www.concour.tn<br>
+        <input type="checkBox" name="Q1" id="Q1R4" value="Q1R4">http:/@concours.htm<br>
+        <input type="checkBox" name="Q1" id="Q1R5" value="Q1R5" > 
+        http://www.concour.tn/inscrire.php?code=5<br>
+         <h3>Question 2 :</h3><br>
+         Quel terme utilise-t-on pour designer un utilisateur internet? (1 bonne réponse)<br>
+         <input type="radio" name="Q2" id="Q2R1" value="Q2R1">Provider<br>
+         <input type="radio" name="Q2" id="Q2R2" value="Q2R2">Browser<br>
+         <input type="radio" name="Q2" id="Q2R3" value="Q2R3">Internaute<br>
+         <input type="radio" name="Q2" id="Q2R4" value="Q2R4">Navigateur<br><br><br>
+         <input type="button" value="Correction" id="correction"> 
+         <input type="reset" value="Effacer" id="effacer"> 
+         <input type="button" value="Corrige" id="corrige">
+         </form> </div> 
+         
+   </article>
+  <script>
+        function corriger() {
+          let score = 0;
+          let q1Selected = document.querySelectorAll('input[name="Q1"]:checked');
+          if (q1Selected.length > 2) {
+            alert("Vous ne pouvez sélectionner que deux réponses pour la question 1.");
+            return;
+          }
+          let q1Correct = document.getElementById('Q1R3').checked && document.getElementById('Q1R5').checked;
+          if (q1Correct) {
+            score += 10;
+          } else {
+            score -= 5;
+          }
+          let q2Selected = document.querySelector('input[name="Q2"]:checked');
+          let q2Correct = document.getElementById('Q2R3').checked;
+          if (q2Selected && q2Selected.id === 'Q2R3') {
+            score += 5;
+          } else if (q2Selected) {
+            score -= 5;
+          }
+        
+          alert(`Votre score est de ${score}/15`);
+        }
+        
+        function effacer() {
+          document.querySelector('form').reset();
+        }
+        function ouvrirCorrige() {
+          window.open("corrige.html", "_blank");
+        }
+        document.querySelector('input[value="Correction"]').addEventListener('click', corriger);
+        document.querySelector('input[value="Effacer"]').addEventListener('click', effacer);
+        document.querySelector('input[value="Corrige"]').addEventListener('click', ouvrirCorrige);
+        </script>
+</body>
+</html>

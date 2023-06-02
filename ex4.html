@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice4</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 4 :</h3> 
+  <p>Ecrire un code js qui permet de lire 3 entiers a, b et c puis d'effectuer une permutation 
+   circulaire et d'afficher les nouvelles valeurs de a,b et c sans utiliser une variable intermédiaire. 
+   </p>
+  <span>correction :</span><br>
+  <label for="a">entrer a :</label>
+   <input type="text" id="a"><br><br>
+   <label for="a">entrer b :</label>
+   <input type="text" id="b"><br><br>
+   <label for="a">entrer c :</label>
+   <input type="text" id="c"><br><br>
+   <input type="button" value="permuter" id="btn">
+   <p id="res"></p>
+   <script>
+      btn=document.getElementById("btn");
+      btn.addEventListener('click',permuter);
+      function permuter(){
+         let a=document.getElementById("a").value;
+         let b=document.getElementById("b").value;
+         let c=document.getElementById("c").value;
+        [a, b, c] = [c, a, b];
+         const res=document.getElementById("res");
+         res.innerHTML="a = "+ a +" b = "+ b +" c = "+ c;
+      }
+   </script>
+</body>
+</html>

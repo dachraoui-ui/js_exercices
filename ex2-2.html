@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 2</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp2.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 2 :</h3> 
+   <h1>Parser d'URL</h1>
+   <label for="urlInput">Entrez une URL :</label>
+   <input type="text" id="urlInput">
+   <button id="parseBtn">Analyser</button>
+      <p id="protocol"></p>
+      <p id="domain"></p>
+      <script>
+        var boutonAnalyser = document.getElementById("parseBtn");
+        boutonAnalyser.addEventListener("click", function() {
+          var url = document.getElementById("urlInput").value;
+          var ancre = document.createElement("a");
+          ancre.href = url;
+          var protocole = ancre.protocol;
+          var domaine = ancre.hostname;
+          document.getElementById("protocol").innerText = "Protocole : " + protocole;
+          document.getElementById("domain").innerText = "Domaine : " + domaine;
+        });
+      </script>
+</body>
+</html>

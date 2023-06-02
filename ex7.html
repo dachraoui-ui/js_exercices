@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 7</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 7 :</h3> 
+  <p>Ecrire un code js qui permet de saisir deux nombres 
+   au clavier et un opérateur (+,*,/,-) puis d'afficher le résultat de l'opération.</p> 
+  <span>correction :</span><br>
+  <label for="a">donner a:</label>
+   <input type="text" id="a"><br>
+   <label for="a">donner b:</label>
+   <input type="text" id="b"><br>
+   <label for="a">donner un opération:</label>
+   <input type="text" id="op"><br>
+   <input type="button" id="btn" value="calculer">
+   <p id="res"></p>
+  <script>
+   btn=document.getElementById("btn");
+   btn.addEventListener('click',calculer);
+   function calculer(){
+      let a=Number(document.getElementById("a").value);
+      let b=Number(document.getElementById("b").value);
+      let op=document.getElementById("op").value;
+      let oper;
+      const res=document.getElementById("res");
+      if(op=="+"){
+         oper=a+b;
+         res.innerHTML=a+op+b+" = "+oper;
+      }
+      else if(op=="-"){
+         oper=a-b;
+         res.innerHTML=a+op+b+" = "+oper;
+      }
+      else if(op=="*"){
+         oper=a*b;
+         res.innerHTML=a+op+b+" = "+oper;
+      }
+      else if(op=="/"){
+         oper=a/b;
+         res.innerHTML=a+op+b+" = "+oper;
+      }
+      else{
+         res.innerHTML="operation invalid";
+      }
+   }
+</script>
+</body>
+</html>

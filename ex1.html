@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 1</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 1 :</h3> 
+  <p>Ecrire un code js qui permet de lire un entier n au clavier, calcule et
+  affiche la somme des entiers de 1 jusqu'à ce nombre. Par exemple, si on
+  saisit 5, le programme doit afficher 15 (1+2+3+4+5=15).</p>
+  <span>correction :</span><br>
+  <label for="number">N :</label>
+<input type="text" id="n">
+<br><br>
+<input type="button" value="calculer" id="btn">
+<p id="res"></p>  
+</article>
+<script>
+   btn = document.getElementById("btn");
+   btn.addEventListener('click',calculer);
+   function calculer(){
+      const n=document.getElementById("n").value;
+      let sum=0;
+      for(let i=1;i<=n;i++){
+         sum=sum+i;
+      }
+      const res=document.getElementById("res");
+      res.innerHTML="le somme est :"+ sum;
+   }
+</script>
+</body>
+</html>
+

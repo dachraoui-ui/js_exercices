@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 8</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 8 :</h3> 
+  <p>Ecrire un code js qui à la lecture de la moyenne affiche la mention correspondante : <br>
+   10 <= moyenne < 12 ==> mention "Passable" <br>
+   12 <= moyenne < 14 ==> mention "Assez Bien" <br>
+   14 <= moyenne < 16 ==> mention "Bien" <br>
+   16 <= moyenne < 18 ==> mention "Très Bien" <br>
+   18 < moyenne ==>mention "Excellent" <br>
+   </p> 
+  <span>correction :</span><br>
+   <label for="moy">afficher la moyenne :</label>
+   <input type="text" id="moy">
+   <input type="button" value="verifier" id="btn"><br>
+   <p id="res"></p>
+   <script>
+      btn=document.getElementById("btn");
+      btn.addEventListener('click',verifier);
+      function verifier(){
+         let moy=Number(document.getElementById("moy").value);
+         const res=document.getElementById("res");
+         if(moy>=10 && moy<12){
+            res.innerHTML="passable";
+         }
+         else if(moy>=12 && moy<14){
+            res.innerHTML="Assez bien";
+         }
+         else if(moy>=14 && moy<16){
+            res.innerHTML=" bien";
+         }
+         else if(moy>=16 && moy<18){
+            res.innerHTML="trés bien";
+         }
+         else if(moy>=18 && moy<=20){
+            res.innerHTML="Exellent";
+         }
+         else{
+            res.innerHTML="n'est pas validé";
+         }
+      }
+   </script>
+</body>
+</html>

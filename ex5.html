@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 5</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 5 :</h3> 
+  <p>Ecrire un code js qui calcule la somme de quatre nombres de type entier saisis au clavier, 
+   <p>a) en se servant de 5 variables (mémorisation des valeurs entrées) :</p>
+    </p>
+  <span>correction :</span><br>
+  <label for="a">donner a :</label>
+   <input type="text" id="a"><br><br>
+   <label for="a">donner b :</label>
+   <input type="text" id="b"><br><br>
+   <label for="a">donner c :</label>
+   <input type="text" id="c"><br><br>
+   <label for="a">donner d :</label>
+   <input type="text" id="d"><br><br>
+   <input type="button" value="calculer" id="btn">
+   <p id="res"></p>
+   <script>
+      btn=document.getElementById("btn");
+      btn.addEventListener('click',calculer);
+      function calculer(){
+         let a =Number(document.getElementById("a").value);
+         let b =Number(document.getElementById("b").value);
+         let c =Number(document.getElementById("c").value);
+         let d =Number(document.getElementById("d").value);
+         let sum=a+b+c+d;
+         const res=document.getElementById("res");
+         res.innerHTML="le somme est :"+sum ;
+      }
+   </script>
+</body>
+</html>

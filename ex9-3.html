@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 9</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp3.html">TPs</a>
+   </nav>
+   <article>
+      <div><h1>Demande pour repasser les E.C</h1>
+         <form name="demande">
+         <table><tr><td>les EC proposes<br>
+         <select name="ListeEC" size="5" id="ListeEC">
+         <option value="Algo">Algorithmique</option>
+         <option value="Prog">Programmation</option>
+         <option value="Anal">Analyse</option>
+         <option value="Angl">Anglais</option>
+         <option value="Sprt">Sport</option>
+         <option value="Gest">Gestion</option>
+         <option value="Resx">Reseaux</option>
+         </select></td><td>
+         <input type="button" value="ajouter"><br>
+         <input type="button" value="<<enlever" >
+         </td><td> les EC demandees<br>
+         <select name="ListeChoix" size="5" id='ListeChoix'></select>
+         </td></tr><tr><td colspan="3" align="center"><br>
+         <input type="button" value="liste demandee" ></td></tr>
+         </table></form>
+         </div>
+   </article>
+   <script>
+      const listeEC = document.getElementById("ListeEC");
+      const listeChoix = document.getElementById("ListeChoix");
+      const ajouterButton = document.querySelector('input[value="ajouter"]');
+      const enleverButton = document.querySelector('input[value="<<enlever"]');
+      const listeDemandeeButton = document.querySelector('input[value="liste demandee"]');
+    
+      ajouterButton.addEventListener("click", function() {
+        const selectedOption = listeEC.options[listeEC.selectedIndex];
+        const newOption = document.createElement("option");
+        newOption.value = selectedOption.value;
+        newOption.text = selectedOption.text;
+        listeChoix.add(newOption);
+      });
+    
+      enleverButton.addEventListener("click", function() {
+        const selectedOption = listeChoix.options[listeChoix.selectedIndex];
+        listeChoix.remove(selectedOption.index);
+      });
+    
+      listeDemandeeButton.addEventListener("click", function() {
+        let demandeListe = "";
+        for (let i = 0; i < listeChoix.options.length; i++) {
+          demandeListe += listeChoix.options[i].text + "  ";
+        }
+        alert("Liste des EC demandés : " + demandeListe);
+      });
+    </script>
+</body>
+</html>

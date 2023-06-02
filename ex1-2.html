@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 1</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp2.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 1 :</h3> 
+   <p id="res"></p>
+   <script>
+      
+      var scoreNiv1 = [213, 125, 124, 320];
+      var res = document.getElementById("res");
+      var afficherText = "";
+      for (var i = 0; i < scoreNiv1.length; i++) {
+        afficherText += "scoreNiv1[" + i + "] = " + scoreNiv1[i] + " |*| ";
+      }
+      res.innerHTML=afficherText;
+ 
+      var totalScoreNiv1 = scoreNiv1.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue;
+      });
+      document.write("<br>score totale de niveau 1: " + totalScoreNiv1);
+      var scoreNiv2 = scoreNiv1.map(function (score, index) {
+        if (index === scoreNiv1.length - 1) {
+          return 423; 
+        } else {
+          return score * 2;
+        }
+      });
+      afficherText = "";
+      for (var i = 0; i < scoreNiv2.length; i++) {
+        afficherText += "scoreNiv2[" + i + "] = " + scoreNiv2[i] + " |*| ";
+      }
+      document.write("<br><br>" + afficherText);
+      var totalScoreNiv2 = scoreNiv2.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue;
+      });
+      document.write("<br>score totale de niveau 2: " + totalScoreNiv2);
+      var TousLesScores = scoreNiv1.concat(scoreNiv2);
+      document.write("<br><br> trié par ordre croissant: " + TousLesScores.sort(function (a, b) {
+        return a - b;
+      }));
+      document.write("<br>trié par ordre decroissant: " + TousLesScores.sort(function (a, b) {
+        return b - a;
+      }));
+    </script>
+</body>
+</html>

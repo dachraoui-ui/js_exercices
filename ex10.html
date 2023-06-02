@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice : 10</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 10 :</h3> <br>
+  <p>Pour déterminer si une année est bissextile ou non on peut procéder comme suit : <br>
+1. Si l’année est divisible par 4, passez à l’étape 2. Sinon, passez à l’étape 5. <br>
+2. Si l’année est divisible par 100, passez à l’étape 3. Sinon, passez à l’étape 4. <br>
+3. Si l’année est divisible par 400, passez à l’étape 4. Sinon, passez à l’étape 5. <br>
+4. L’année est une année bissextile (elle compte 366 jours). <br>
+5. L’année n’est pas une année bissextile (elle compte 365 jours). <br>
+Ecrire un code js qui permet de déterminer si un entier positif 
+donné correspond à une année bissextile ou non.
+    
+</p> 
+<label for="a">donner une année :</label>
+   <input type="text" id="annee"><br>
+   <input type="button" value="verifier" id="btn">
+   <p id="res"></p>
+
+   <script>
+      var btn = document.getElementById("btn");
+      btn.addEventListener("click", function() {
+         var annee = parseInt(document.getElementById("annee").value);
+
+         if (isNaN(annee)) {
+            document.getElementById("res").textContent = "Veuillez entrer une année valide.";
+         } else {
+            var AnneeBissextile = estAnneeBissextile(annee);
+
+            if (AnneeBissextile) {
+               document.getElementById("res").textContent = "L'année " + annee + " est une année bissextile.";
+            } else {
+               document.getElementById("res").textContent = "L'année " + annee + " n'est pas une année bissextile.";
+            }
+         }
+      });
+
+      function estAnneeBissextile(annee) {
+         if (annee % 4 === 0) {
+            if (annee % 100 === 0) {
+               if (annee % 400 === 0) {
+                  return true;
+               } else {
+                  return false;
+               }
+            } else {
+               return true;
+            }
+         } else {
+            return false;
+         }
+      }
+   </script>
+</body>
+</html>

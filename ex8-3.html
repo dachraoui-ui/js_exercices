@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 8</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp3.html">TPs</a>
+   </nav>
+   <article>
+      <div><h2>Convertisseur de devise</h2> <form name="dev">
+         Montant en dinars tunisien : <input type="text" name="MDT" id="MDT" value="0"><br>
+         Montant equivalent : <input type="text" name="MEQ" id="MEQ" ><br>
+         <input type="radio" name="devise" id="euro" value="euro" checked>Euro<br>
+         <input type="radio" name="devise" id="dollar" value="dollar">Dollar d'USA<br>
+         <input type="radio" name="devise" id="livre" value="livre">Livre sterling<br>
+         <input type="radio" name="devise" id="yen" value="yen">Yen japonais<br>
+         <input type="button" value="Changer cours"> 
+         </form>
+   </article>
+   <script>
+      var Cours = {
+          euro: 3.26,
+          dollar: 2.71,
+          livre: 3.79,
+          yen: 0.025
+      };
+      function convertir(montant, monnaie) {
+          return montant / Cours[monnaie];
+      }
+      document.getElementById("MDT").addEventListener("input", function() {
+          var montantDT = parseFloat(document.getElementById("MDT").value);
+          var monnaie = document.querySelector('input[name="devise"]:checked').value;
+          var montantEQ = convertir(montantDT, monnaie);
+          document.getElementById("MEQ").value = montantEQ.toFixed(2);
+      });
+      document.querySelector('input[value="Changer cours"]').addEventListener("click", function() {
+          var monnaie = document.querySelector('input[name="devise"]:checked').value;
+          var nouveauCours = parseFloat(prompt("Entrez le nouveau cours pour " + monnaie));
+          if (!isNaN(nouveauCours)) {
+              Cours[monnaie] = nouveauCours;
+          }
+      });
+      </script>
+</body>
+</html>

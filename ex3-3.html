@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 3</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp3.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 3 :</h3> 
+   <h1>Calcul de l'âge</h1>
+      <form>
+         Année de naissance : 
+         <input type="text" name="annee" id="annee">
+         <input type="button" value="Calculer" id="btnCalculer">
+      </form>
+   </div>
+
+   <script>
+      var button = document.getElementById("btnCalculer");
+      button.addEventListener("click", calculerAge);
+
+      function calculerAge() {
+         var anneeNaissance = document.getElementById("annee").value;
+         var anneeCourante = new Date().getFullYear();
+         var age = anneeCourante - anneeNaissance;
+         alert("Ton âge est : " + age);
+      }
+   </script>
+</body>
+</html>

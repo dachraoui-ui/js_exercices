@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="allexercices.css">
+   <link rel="shortcut icon" href="lesson.png" type="image/x-icon">
+   <title>Exercice 2</title>
+</head>
+<body>
+   <nav>
+      <a id="home" href="main_page.html">Accueil</a>
+      <a id="tps" href="tp1.html">TPs</a>
+   </nav>
+<article>
+   <h3>Exercice 2 :</h3> 
+  <p>Ecrire un code js qui permet de lire un nombre de secondes D puis
+    d'afficher son équivalent en nombre d'heures, de minutes et de secondes.
+     Prévoir les cas particuliers. </p>
+  <span>correction :</span><br>
+  <label for="hour">time in seconde :</label>
+   <input type="text" id="time">
+   <input type="button" id="btn" value="calculer">
+   <p id="res"></p>
+   <script>
+      btn=document.getElementById("btn");
+      btn.addEventListener('click',calculer);
+      function calculer(){
+         const time=document.getElementById("time");
+         let n=Math.floor(Number(time.value));
+         let H=Math.floor(n/3600);
+         let M=Math.floor((n%3600)/60);
+         let S=Math.floor(n%60);
+         const res=document.getElementById("res");
+         res.innerHTML="the time is :"+H+" hh "+M+" mm "+S+" ss ";
+      }
+   </script>
+</body>
+</html>
